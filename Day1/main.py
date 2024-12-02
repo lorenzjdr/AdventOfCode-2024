@@ -14,12 +14,17 @@ class DayOne:
          num1, num2 = map(int, line.split())
          self.list1.append(num1)
          self.list2.append(num2)
-   
+     
    def Solution(self):
-      heapq.heapify(self.list1)
-      heapq.heapify(self.list2)
+      list1_copy = self.list1[:]
+      list2_copy = self.list2[:]
+      heapq.heapify(list1_copy)
+      heapq.heapify(list2_copy)
 
-      while self.list1:
-         num1 = heapq.heappop(self.list1)
-         num2 = heapq.heappop(self.list2)
+      while list1_copy and list2_copy:
+         num1 = heapq.heappop(list1_copy)
+         num2 = heapq.heappop(list2_copy)
          self.ans += abs(num1 - num2)
+   
+   def SolutionPartTwo(self):
+      pass
