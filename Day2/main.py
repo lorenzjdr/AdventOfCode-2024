@@ -33,7 +33,7 @@ class DayTwo:
             self.ans += 1
 
    def SolutionPartTwo(self):
-      def is_safe(level):
+      def is_safe_sequence(level):
          is_increasing = level[0] < level[1]
          
          for i in range(1, len(level)):
@@ -44,4 +44,14 @@ class DayTwo:
             elif abs(level[i] - level[i-1]) > 3:
                return False
          return True
-      
+
+      for level in self.data:
+         # first check without altering the level
+         if is_safe_sequence(level):
+            self.ans2 += 1
+         else:
+            for i in range(len(level)):
+               # skip the current number
+               if is_safe_sequence(level[:i] + level[i+1:]):
+                  self.ans2 += 1
+                  break
