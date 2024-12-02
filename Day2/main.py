@@ -2,6 +2,7 @@ class DayTwo:
    def __init__(self):
       self.data = []
       self.ans = 0 
+      self.ans2 = 0
       self.read_input()
 
    def read_input(self):
@@ -30,3 +31,6 @@ class DayTwo:
                continue
          if safe:
             self.ans += 1
+   
+   def SolutionPartTwo(self):
+      pass
