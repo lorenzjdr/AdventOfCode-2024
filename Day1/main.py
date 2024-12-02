@@ -1,10 +1,12 @@
 import heapq
+from typing import Counter
 
 class DayOne:
    def __init__(self):
       self.list1 = []
       self.list2 = []
       self.ans = 0
+      self.ans2 = 0
       self.read_input()
 
    def read_input(self):
@@ -27,4 +29,8 @@ class DayOne:
          self.ans += abs(num1 - num2)
    
    def SolutionPartTwo(self):
-      pass
+      list2_frequency = Counter(self.list2)
+
+      for num in self.list1:
+         if num in list2_frequency:
+            self.ans2 += num * list2_frequency[num]
