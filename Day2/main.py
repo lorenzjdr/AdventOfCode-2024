@@ -31,6 +31,17 @@ class DayTwo:
                continue
          if safe:
             self.ans += 1
-   
+
    def SolutionPartTwo(self):
-      pass
+      def is_safe(level):
+         is_increasing = level[0] < level[1]
+         
+         for i in range(1, len(level)):
+            if is_increasing and level[i] <= level[i-1]:
+               return False
+            elif not is_increasing and level[i] >= level[i-1]:
+               return False
+            elif abs(level[i] - level[i-1]) > 3:
+               return False
+         return True
+      
