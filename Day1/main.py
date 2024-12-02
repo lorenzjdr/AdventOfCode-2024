@@ -1,3 +1,5 @@
+import heapq
+
 class DayOne:
    def __init__(self):
       self.list1 = []
@@ -14,4 +16,10 @@ class DayOne:
          self.list2.append(num2)
    
    def Solution(self):
-      pass
+      heapq.heapify(self.list1)
+      heapq.heapify(self.list2)
+
+      while self.list1:
+         num1 = heapq.heappop(self.list1)
+         num2 = heapq.heappop(self.list2)
+         self.ans += abs(num1 - num2)
