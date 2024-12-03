@@ -1,5 +1,6 @@
 from Day1.main import DayOne
 from Day2.main import DayTwo
+from Day3.main import DayThree
 
 day_one = DayOne()
 day_one.Solution()
@@ -14,3 +15,7 @@ print("Answer:", day_two.ans)
 
 day_two.SolutionPartTwo()
 print("Answer Part Two:", day_two.ans2)
+
+day_three = DayThree()
+day_three.Solution()
+print("Answer:", day_three.ans)
