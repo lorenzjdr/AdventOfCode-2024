@@ -3,22 +3,37 @@ import re
 class DayThree:
    def __init__(self):
       self.ans = 0
+      self.ans2 = 0
       self.matches = []
+      self.matches2 = []
       self.pattern = r"mul\((\d{1,3}),(\d{1,3})\)"
       self.read_input()
 
-   def read_input(self):
+   def read_input(self, do_rule=False):
       with open('./Day3/input.txt', 'r') as file:
-         for line in file:
-            match = re.findall(self.pattern, line)
-            if match:
-               for i in match:
-                  numbers = (int(i[0]), int(i[1])) # numbers inside the pattern
-                  self.matches.append(numbers) 
+         data = file.read()
+           
+      if do_rule:
+         # match don't() and do() and replace with -
+         # anything after a dont() and before a do() is removed
+         # (.|\n)*? match any char and then add ne 
+         data = re.sub(r"don't\(\)(.|\n)*?do\(\)", "-", data)
+          
+      for line in data.splitlines():
+         match = re.findall(self.pattern, line)
+         if match:
+            for i in match:
+               numbers = (int(i[0]), int(i[1])) # numbers inside the pattern
+               if do_rule:
+                  self.matches2.append(numbers)
+               else:
+                  self.matches.append(numbers)
    
    def Solution(self):
       for j in self.matches:
          self.ans += j[0] * j[1]
    
    def SolutionPartTwo(self):
-      pass
+      self.read_input(do_rule=True)
+      for x in self.matches2:
+         self.ans2 += x[0] * x[1]
