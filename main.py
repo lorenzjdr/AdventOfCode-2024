@@ -19,3 +19,6 @@ print("Answer Part Two:", day_two.ans2)
 day_three = DayThree()
 day_three.Solution()
 print("Answer:", day_three.ans)
+
+day_three.SolutionPartTwo()
+print("Answer Part Two:", day_three.ans2)
