@@ -14,8 +14,7 @@ class DayThree:
          data = file.read()
            
       if do_rule:
-         # match don't() and do() and replace with -
-         # anything after a dont() and before a do() is removed
+         # anything after a dont() but before a do() is replaced with -
          # (.|\n)*? match any char and then add ne 
          data = re.sub(r"don't\(\)(.|\n)*?do\(\)", "-", data)
           
