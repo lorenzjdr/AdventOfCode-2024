@@ -15,7 +15,7 @@ class DayThree:
            
       if do_rule:
          # anything after a dont() but before a do() is replaced with -
-         # (.|\n)*? match any char and then add ne 
+         # (.|\n)*? match any char or newline * times
          data = re.sub(r"don't\(\)(.|\n)*?do\(\)", "-", data)
           
       for line in data.splitlines():
